@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <agm-map
+        [latitude]="lat"
+        [longitude]="lng"
+        [zoom]="zoom"
+        [disableDefaultUI]="disableUI"
+      >
+        <agm-marker
+          [latitude]="lat"
+          [longitude]="lng"
+          (markerClick)="addPlace($event)"
+          [markerClickable]="true"
+          [openInfoWindow]="true"
+        ></agm-marker>
+      </agm-map>
+      <input ngx-google-places-autocomplete
+             [options]='options'
+             #placesRef="ngx-places"
+             (onAddressChange)="handleAddressChange($event)"
+             class="form-control autocomplete"
+      />
+    </div>
+  </div>
+</div>
